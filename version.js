@@ -1,1 +1,1 @@
-window.APP_VERSION='1.0.50 (test web)';
+window.APP_VERSION='1.0.51 (test web)';

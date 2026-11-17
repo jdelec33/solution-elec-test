@@ -72,6 +72,10 @@
       <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 14h6M9 17h4"/></svg></div>
       <div><h2>Estimation globale</h2><p>Surface et pièces : minimum NF C 15-100 (tableau, circuits, prises) chiffré en un instant.</p></div>
     </button>
+    <button class="tile tile-demo hide-loc" id="h-age">
+      <div class="tile-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div>
+      <div><h2>Quel âge a l'électricité ?</h2><p>Sans outil, 5 à 6 questions : époque de l'installation, points hors norme et prix des travaux selon la région.</p></div>
+    </button>
     <div class="tiles ag-tiles ag-only">
       <button class="tile" id="h-depot">
         <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M12 18v-6M9 15l3-3 3 3"/></svg></div>
@@ -197,6 +201,7 @@
     <div class="sheet-head">
       <div><div class="sheet-room" id="r-room"></div><div class="sheet-sub" id="r-sub"></div></div>
       <div class="sheet-total" id="r-total"></div>
+      <p class="hint" id="r-zone" hidden></p>
     </div>
     <div class="sheet-body" id="r-body"></div>
     <div class="sheet-actions">
@@ -261,6 +266,14 @@
     <div class="title"><h1>Estimation globale</h1><div class="sub">Rénovation · NF C 15-100</div></div><span></span>
   </header>
   <div class="content" id="gl-content"></div>
+</section>
+
+<section class="screen" id="s-age" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="ag2-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Âge de l'installation</h1><div class="sub" id="ag2-sub">Sans outil</div></div><span></span>
+  </header>
+  <div class="content" id="ag2-content"></div>
 </section>
 
 <!-- ============ TABLEAU DE BORD AGENCE ============ -->
@@ -430,6 +443,12 @@
       <button class="btn ghost" id="st-test">Tester la connexion</button>
       <p class="hint" id="st-testres"></p>
     </div>
+    <div class="card hide-loc" id="st-zone-card">
+      <h2>Zone de prix</h2>
+      <label for="st-cp">Code postal de votre secteur</label>
+      <input id="st-cp" type="text" inputmode="numeric" maxlength="5" placeholder="ex. 75011" autocomplete="off">
+      <p class="hint" id="st-zone-l">Les estimations s'ajustent au coût de la main-d'œuvre de la zone (Paris et petite couronne × 1,25, grandes métropoles × 1,10 à 1,15, reste de la France × 1). L'adresse du bien, si elle contient un code postal, passe avant ce réglage. Vos propres prix de la grille ne sont jamais corrigés.</p>
+    </div>
     <div class="card pro-only">
       <h2>Grille de prix JD Elec 33 <small>€ HT posé</small></h2>
       <p class="hint">Les lignes marquées « à confirmer » ne figurent pas dans le devis de référence. Ajustez-les une fois, elles sont mémorisées.</p>
@@ -533,6 +552,7 @@
 <script src="pdf.js"></script>
 <script src="legal.js"></script>
 <script src="catalogue.js"></script>
+<script src="zones.js"></script>
 <script src="depannage.js"></script>
 <script src="copro.js"></script>
 <script src="visite.js"></script>
@@ -551,5 +571,6 @@
 <script src="partenaires.js"></script>
 <script src="immeubles-ui.js"></script>
 <script src="qr.js"></script>
+<script src="age-ui.js"></script>
 </body>
 </html>

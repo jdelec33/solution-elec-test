@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<script src="demo-avant.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#111111">
+<title>Solution Élec – Démo dépannage</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+<!-- ============ ACCUEIL ============ -->
+<section class="screen" id="s-home">
+  <div class="content home">
+    <header class="hero">
+      <div class="hero-top">
+        <div class="logo-jd"><div class="lj-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><text x="3" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#111111">J</text><text x="19" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#111111">D</text><path d="M27 6 18 26h7l-4 16 13-22h-7l4-14z" fill="#111111" stroke="#FFD100" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="lj-txt"><b>JD Elec 33</b><small>Électricité générale</small></div></div>
+        <button class="icon-btn glass" data-go="s-settings" aria-label="Réglages">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </button>
+      </div>
+      <h1 class="brandname"><span class="app-name">Solution Élec</span></h1>
+      <p class="tagline">Le dépannage électrique qui commence par un diagnostic, pas par un déplacement.</p>
+      <div class="chips"><span>Pannes réglées à distance</span><span>Validation par l'agence</span><span>Devis en 2 minutes</span></div>
+      <div class="by"><span id="ver"></span></div>
+    </header>
+    <div class="prof-label">Je suis</div>
+    <div class="prof-switch" id="prof-switch" role="tablist" aria-label="Profil">
+      <button data-p="locataire" role="tab">Locataire</button>
+      <button data-p="agence" role="tab">Agence</button>
+      <button data-p="electricien" role="tab">Électricien</button>
+    </div>
+
+    <div class="panne-xl loc-only">
+      <button class="panne-btn" id="h-panne"><span class="pb-ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>J'ai une panne</button>
+      <button class="panne-voix" id="h-panne-voix"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Dire ma panne à voix haute</button>
+    </div>
+    <p class="rassure-court loc-only"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Sans outil, pas à pas.</p>
+    <button class="lien-qr loc-only" id="h-qr" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/><path d="M14 14h2v2h-2zM18 14h2v2M14 18h2v2M18 18h2v2h-2"/></svg><span id="h-qr-t">Scanner l'autocollant du logement</span></button>
+    <a class="urgence-accueil loc-only" href="tel:18"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.5"/></svg>Fumée, brûlé ou eau ? Appelez le 18</a>
+    <button class="tile tile-main hide-loc" id="h-dep">
+      <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div>
+      <div><h2>Dépannage guidé</h2><p id="h-dep-p">Une panne ? Diagnostic pas à pas en toute sécurité, puis demande d'intervention envoyée à l'agence.</p></div>
+    </button>
+    <div class="tiles pro-only">
+      <button class="tile pro-only" id="h-pre">
+        <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
+        <h2>Pré-évaluation photo</h2><p>Anomalies repérées pièce par pièce, rapport chiffré.</p>
+      </button>
+      <button class="tile pro-only" id="h-diag">
+        <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M12 18v-6M9 15l3 3 3-3"/></svg></div>
+        <h2>Diagnostic → devis</h2><p>Importez le rapport, le devis est prêt.</p>
+      </button>
+    </div>
+
+    <button class="tile tile-main ag-only" id="h-parc">
+      <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></div>
+      <div><h2>Mon parc de logements</h2><p id="h-parc-p">Importez vos logements (Excel, CSV) et suivez les diagnostics à renouveler.</p></div>
+    </button>
+    <button class="tile tile-demo ag-only tile-tdb" id="h-tdb">
+      <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <div><h2>Tableau de bord</h2><p id="h-tdb-p">Demandes, délais, diagnostics à renouveler, déplacements évités.</p></div>
+    </button>
+    <button class="reprise-visite maj" id="h-maj" type="button" hidden><span class="rv-ico"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span><span class="vt"><span>Nouvelle version disponible</span><b></b><small>Touchez pour télécharger, puis ouvrez le fichier pour installer : vos données sont gardées.</small></span></button>
+    <button class="reprise-visite" id="h-reprise" type="button" hidden><span class="rv-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="vt"><span>Reprendre la visite en cours</span><b></b><small></small></span></button>
+    <button class="tile tile-main ag-only" id="h-cam">
+      <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
+      <div><h2>Relevé visuel (visite)</h2><p>Pièce par pièce, photographiez, cochez ou dictez ce que vous voyez : estimation TTC indicative à la fin de la visite.</p></div>
+    </button>
+    <button class="tile tile-demo hide-loc" id="h-glob">
+      <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 14h6M9 17h4"/></svg></div>
+      <div><h2>Estimation globale</h2><p>Surface et pièces : minimum NF C 15-100 (tableau, circuits, prises) chiffré en un instant.</p></div>
+    </button>
+    <button class="tile tile-demo hide-loc" id="h-age">
+      <div class="tile-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div>
+      <div><h2>Quel âge a l'électricité ?</h2><p>Sans outil, 5 à 6 questions : époque de l'installation, points hors norme et prix des travaux selon la région.</p></div>
+    </button>
+    <div class="tiles ag-tiles ag-only">
+      <button class="tile" id="h-depot">
+        <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M12 18v-6M9 15l3-3 3 3"/></svg></div>
+        <h2>Déposer le diagnostic</h2><p>Obtenez votre devis de mise en sécurité.</p>
+      </button>
+      <button class="tile" id="h-plan">
+        <div class="tile-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><circle cx="15.5" cy="15.5" r="1.6"/><path d="M16.7 16.7l2 2"/></svg></div>
+        <h2>Planifier l'intervention</h2><p>Devis accepté : date, créneau, clés.</p>
+      </button>
+    </div>
+
+    <button class="tile tile-main hide-loc" id="h-imm">
+      <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M4 21V5l8-3v19M12 8h8v13"/><path d="M7 8h2M7 12h2M7 16h2M15 12h2M15 16h2M2 21h20"/></svg></div>
+      <div><h2>Mes immeubles</h2><p id="h-imm-p">Équipements, contacts des prestataires, pannes et visite annuelle, immeuble par immeuble.</p></div>
+    </button>
+    <button class="tile tile-demo hide-loc" id="h-services">
+      <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div><h2>Visite annuelle et devis pour l'AG</h2><p>Vérification des parties communes, contrat de maintenance, sous-compteurs, devis prêts pour l'assemblée générale.</p></div>
+    </button>
+    <button class="tile tile-demo hide-loc" id="h-part">
+      <div class="tile-ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M17.5 7.5 15 12h3.2l-1.7 4.5"/></svg></div>
+      <div><h2>Électriciens partenaires</h2><p id="h-part-p">Ajouter un électricien, contrat et conditions générales de vente, grille des commissions.</p></div>
+    </button>
+    <button class="tile tile-demo hide-loc" id="h-demo">
+      <div class="tile-ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <div><h2>Démo agence</h2><p>Tableau de bord d'un parc de 160 logements : Électro-score, carte des risques, économies.</p></div>
+    </button>
+    <div class="card new hide-loc" id="h-form" hidden>
+      <h2 id="h-form-t">Nouvelle pré-évaluation</h2>
+      <label for="h-ref">Adresse ou référence du bien</label>
+      <input id="h-ref" type="text" placeholder="ex. 27 rue des Immortelles, Hourtin" autocomplete="off" list="h-ref-parc">
+      <datalist id="h-ref-parc"></datalist>
+      <label for="h-client" id="h-client-l">Client / agence (facultatif)</label>
+      <input id="h-client" type="text" placeholder="ex. AJP Immobilier Soulac" autocomplete="off">
+      <label for="h-nature">Maison ou appartement</label>
+      <select id="h-nature"><option value="">Choisir</option><option value="maison">Maison</option><option value="appartement">Appartement</option><option value="maison_copro">Maison en copropriété</option></select>
+      <div class="hf-row">
+        <div><label for="h-type">Type</label><select id="h-type"><option value="">Choisir</option><option>Studio</option><option>T2</option><option>T3</option><option>T4</option><option>T5</option><option>T6</option></select></div>
+        <div><label for="h-surf">Surface (m²)</label><input id="h-surf" type="number" inputmode="numeric" min="10" max="600" placeholder="ex. 65"></div>
+      </div>
+      <button class="btn primary big" id="h-start">
+        <svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        Démarrer le scan
+      </button>
+      <p class="hint" id="h-keywarn" hidden>Ajoutez votre clé API dans Réglages avant de scanner.</p>
+    </div>
+
+    <h3 class="sec" id="h-dem-title" hidden>Demandes d'intervention</h3>
+    <div id="h-dem" class="list"></div>
+    <button class="lien-prof loc-only" id="h-prof-open" type="button">Agence ou électricien ?</button>
+    <h3 class="sec hide-loc" id="h-list-t">Pré-évaluations</h3>
+    <div id="h-list" class="list hide-loc"></div>
+  </div>
+</section>
+
+<!-- ============ SCAN (caméra) ============ -->
+<section class="screen dark" id="s-scan" hidden>
+  <div class="cam">
+    <video id="video" playsinline muted autoplay></video>
+    <canvas id="frame" hidden></canvas>
+    <img id="still" alt="" hidden>
+    <div class="overlay" id="overlay"></div>
+    <div class="flash" id="flash" hidden></div>
+    <div class="cam-msg" id="cam-msg" hidden></div>
+    <div class="scanline" id="scanline" hidden></div>
+    <div class="nav" id="nav" hidden>
+      <button id="nav-prev" aria-label="Photo précédente"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <span id="nav-pos"></span>
+      <button id="nav-next" aria-label="Photo suivante"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+
+  <div class="cam-top">
+    <button class="icon-btn glass" id="sc-close" aria-label="Terminer la visite">
+      <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <div class="rooms" id="rooms"></div>
+  </div>
+
+  <div class="cam-bottom" id="cam-bottom">
+    <div class="tray" id="tray" hidden>
+      <div class="tray-shots" id="tray-shots"></div>
+      <button class="btn primary" id="sc-analyse">Analyser</button>
+    </div>
+    <div class="cam-actions">
+      <button class="ca-btn" id="sc-mic" type="button"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Dicter</button>
+      <button class="ca-btn" id="sc-check" type="button"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>Cocher</button>
+    </div>
+    <div class="cam-tools">
+      <button class="pill-btn" id="sc-lens" hidden aria-label="Changer d'objectif">1×</button>
+      <div class="modes" role="tablist">
+        <button data-mode="photo" class="on" role="tab">Photo</button>
+        <button data-mode="video" role="tab">Vidéo</button>
+      </div>
+      <span class="rec" id="rec" hidden></span>
+    </div>
+    <div class="cam-row">
+      <button class="thumb" id="sc-report" aria-label="Voir le rapport"><span id="sc-count">0</span><small>constats</small></button>
+      <button class="shutter" id="sc-shoot" aria-label="Prendre une photo"><span></span></button>
+      <label class="thumb file" for="sc-file" aria-label="Importer des photos">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-5-5-9 8"/></svg>
+      </label>
+      <input type="file" id="sc-file" accept="image/*" multiple hidden>
+    </div>
+  </div>
+
+  <!-- visite guidée : constats cochés ou dictés -->
+  <div class="sheet ck" id="ck" hidden>
+    <div class="sheet-head">
+      <div><div class="sheet-room" id="ck-room"></div><div class="sheet-sub" id="ck-sub"></div></div>
+      <div class="sheet-total" id="ck-total"></div>
+    </div>
+    <div class="sheet-body" id="ck-body"></div>
+    <div class="sheet-actions">
+      <button class="btn ghost" id="ck-cancel" type="button">Annuler</button>
+      <button class="btn ghost" id="ck-ras" type="button">Rien à signaler</button>
+      <button class="btn primary" id="ck-ok" type="button">Ajouter au rapport</button>
+    </div>
+  </div>
+
+  <!-- feuille de résultat -->
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet-head">
+      <div><div class="sheet-room" id="r-room"></div><div class="sheet-sub" id="r-sub"></div></div>
+      <div class="sheet-total" id="r-total"></div>
+      <p class="hint" id="r-zone" hidden></p>
+    </div>
+    <div class="sheet-body" id="r-body"></div>
+    <div class="sheet-actions">
+      <button class="btn ghost" id="r-retake">Reprendre</button>
+      <button class="btn primary" id="r-keep">Valider</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RAPPORT ============ -->
+<section class="screen" id="s-report" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="rp-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1 id="rp-title">Rapport</h1><div class="sub" id="rp-sub"></div></div>
+    <span></span>
+  </header>
+  <div class="content" id="rp-content"></div>
+  <div class="footbar">
+    <button class="btn ghost" id="rp-scan">Continuer</button>
+    <button class="btn ghost" id="rp-copy">Copier</button>
+    <button class="btn primary" id="rp-pdf">PDF</button>
+  </div>
+</section>
+
+<!-- ============ DÉPANNAGE ============ -->
+<section class="screen" id="s-dep" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="dp-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Dépannage</h1><div class="sub" id="dp-step"></div></div>
+    <div class="tb-actions">
+      <button class="icon-btn cam-btn" id="dp-cam" aria-label="Prendre une photo"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span class="badge-n" id="dp-camn" hidden>0</span></button>
+      <button class="icon-btn" id="dp-torch" aria-label="Lampe torche"><svg viewBox="0 0 24 24"><path d="M8 2h8l-1 6H9z"/><path d="M9 8v12a3 3 0 0 0 6 0V8"/><path d="M12 13v3"/></svg></button>
+      <button class="icon-btn" id="dp-voice" aria-label="Couper la voix"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="w1" d="M16 9a4 4 0 0 1 0 6"/><path class="w2" d="M18.5 6.5a8 8 0 0 1 0 11"/><path class="x" d="M16 9l5 6M21 9l-5 6"/></svg></button>
+      <button class="icon-btn" id="dp-home" aria-label="Recommencer"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+    </div>
+  </header>
+  <div class="content" id="dp-content"></div>
+  <input type="file" id="dp-file" accept="image/*" capture="environment" hidden>
+  <input type="file" id="dp-gal" accept="image/*" multiple hidden>
+</section>
+
+<!-- ============ DIAGNOSTIC → DEVIS ============ -->
+<section class="screen" id="s-diag" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="dg-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Diagnostic → devis</h1><div class="sub" id="dg-sub"></div></div><span></span>
+  </header>
+  <div class="content" id="dg-content"></div>
+  <div class="footbar" id="dg-foot" hidden>
+    <button class="btn ghost" id="dg-new">Autre</button>
+    <button class="btn ghost" id="dg-plan">Planifier</button>
+    <button class="btn ghost" id="dg-copy">Copier</button>
+    <button class="btn primary" id="dg-pdf">Devis PDF</button>
+  </div>
+  <input type="file" id="dg-file" accept="application/pdf,image/*" multiple hidden>
+</section>
+
+<!-- ============ ESTIMATION GLOBALE ============ -->
+<section class="screen" id="s-glob" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="gl-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Estimation globale</h1><div class="sub">Rénovation · NF C 15-100</div></div><span></span>
+  </header>
+  <div class="content" id="gl-content"></div>
+</section>
+
+<section class="screen" id="s-age" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="ag2-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Âge de l'installation</h1><div class="sub" id="ag2-sub">Sans outil</div></div><span></span>
+  </header>
+  <div class="content" id="ag2-content"></div>
+</section>
+
+<!-- ============ TABLEAU DE BORD AGENCE ============ -->
+<section class="screen" id="s-tdb" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="tdb-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Tableau de bord</h1><div class="sub">Chiffres réels de l'agence</div></div><span></span>
+  </header>
+  <div class="content" id="tdb-content"></div>
+</section>
+
+<!-- ============ SUIVI D'UNE DEMANDE ============ -->
+<section class="screen" id="s-dossier" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="dd-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Suivi de la demande</h1><div class="sub" id="dd-sub"></div></div><span></span>
+  </header>
+  <div class="content" id="dd-content"></div>
+</section>
+
+<!-- ============ AGENCE : MON PARC ============ -->
+<section class="screen" id="s-parc" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="pa-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Mon parc</h1><div class="sub" id="pa-sub"></div></div><span></span>
+  </header>
+  <div class="content" id="pa-content"></div>
+  <input type="file" id="pa-file" accept=".xlsx,.xls,.csv,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" hidden>
+</section>
+
+<!-- ============ AGENCE : DÉPÔT DIAGNOSTIC ============ -->
+<section class="screen" id="s-depot" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="dpo-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Déposer le diagnostic</h1><div class="sub">Obtenir votre devis</div></div><span></span>
+  </header>
+  <div class="content" id="dpo-content"></div>
+  <input type="file" id="dpo-file" accept="application/pdf,image/*" multiple hidden>
+</section>
+
+<!-- ============ AGENCE : PLANIFIER ============ -->
+<section class="screen" id="s-plan" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="pl-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Planifier l'intervention</h1><div class="sub">Date · créneau · clés</div></div><span></span>
+  </header>
+  <div class="content" id="pl-content"></div>
+</section>
+
+<!-- ============ DÉMO AGENCE ============ -->
+<section class="screen" id="s-demo" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="dm-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1 id="dm-title">Démo agence</h1><div class="sub">Tableau de bord</div></div><span></span>
+  </header>
+  <div class="content" id="dm-content"></div>
+</section>
+
+<!-- ============ BIENVENUE ============ -->
+<section class="screen welcome" id="s-welcome" hidden>
+  <div class="wl-slides" id="wl-slides">
+    <div class="wl-slide">
+      <div class="logo-jd big"><div class="lj-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><text x="3" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#111111">J</text><text x="19" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#111111">D</text><path d="M27 6 18 26h7l-4 16 13-22h-7l4-14z" fill="#111111" stroke="#FFD100" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="lj-txt"><b>JD Elec 33</b><small>Électricité générale</small></div></div>
+      <h1 class="brandname app-name">Solution Élec</h1>
+      <p class="tagline">Le dépannage électrique qui commence par un diagnostic, pas par un déplacement.</p>
+    </div>
+    <div class="wl-slide">
+      <div class="wl-step"><b>1</b><div><h2>Une panne ?</h2><p>L'appli vous guide pas à pas, en toute sécurité. Beaucoup de pannes se règlent en deux minutes, sans faire venir personne.</p></div></div>
+      <div class="wl-step"><b>2</b><div><h2>Un électricien est nécessaire ?</h2><p>La demande part à l'agence avec tout le dossier. L'électricien est prévenu en même temps.</p></div></div>
+      <div class="wl-step"><b>3</b><div><h2>Bon pour accord</h2><p>L'agence valide, l'électricien prend rendez-vous et intervient, sans passage inutile.</p></div></div>
+    </div>
+    <div class="wl-slide">
+      <h2 class="wl-q">Vous êtes…</h2>
+      <div class="choices" id="wl-prof">
+        <button class="choice" data-p="locataire">Locataire</button>
+        <button class="choice" data-p="agence">Agence immobilière</button>
+        <button class="choice" data-p="electricien">Électricien / artisan</button>
+      </div>
+      <label class="check"><input type="checkbox" id="wl-cgu"><span>J'accepte les <a href="#" data-legal="cgu">conditions d'utilisation</a> et la <a href="#" data-legal="conf">politique de confidentialité</a>.</span></label>
+    </div>
+  </div>
+  <div class="wl-foot">
+    <div class="dots" id="wl-dots"><span class="on"></span><span></span><span></span></div>
+    <button class="btn primary big" id="wl-next">Suivant</button>
+  </div>
+</section>
+
+<!-- ============ ÉLECTRICIENS PARTENAIRES ============ -->
+<section class="screen" id="s-partenaires" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="pt-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Électriciens partenaires</h1><div class="sub" id="pt-sub"></div></div><span></span>
+  </header>
+  <div class="content" id="pt-content"></div>
+</section>
+
+<!-- ============ LECTEUR DE QR (autocollant du logement, affiche du hall) ============ -->
+<section class="screen" id="s-qr" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="qr-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Scanner le code</h1><div class="sub" id="qr-sub"></div></div><span></span>
+  </header>
+  <div class="content" id="qr-content"></div>
+</section>
+
+<!-- ============ COPRO : MES IMMEUBLES ============ -->
+<section class="screen" id="s-imm" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="im-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Mes immeubles</h1><div class="sub" id="im-sub"></div></div><span></span>
+  </header>
+  <div class="content" id="im-content"></div>
+</section>
+
+<!-- ============ COPRO : VISITE ANNUELLE, CONTRAT, SOUS-COMPTAGE ============ -->
+<section class="screen" id="s-services" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="sv-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Visite annuelle et devis</h1><div class="sub">Parties communes</div></div><span></span>
+  </header>
+  <div class="content" id="sv-content"></div>
+</section>
+
+<!-- ============ MENTIONS LÉGALES ============ -->
+<section class="screen" id="s-legal" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="lg-back" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Informations légales</h1></div><span></span>
+  </header>
+  <div class="content legal" id="lg-content"></div>
+</section>
+
+<!-- ============ RÉGLAGES ============ -->
+<section class="screen" id="s-settings" hidden>
+  <header class="topbar">
+    <button class="icon-btn" data-go="s-home" aria-label="Retour"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="title"><h1>Réglages</h1></div><span></span>
+  </header>
+  <div class="content">
+    <p class="hint st-ver" id="st-ver"></p>
+    <div class="card" id="st-transfert">
+      <h2>Transférer mes réglages</h2>
+      <p class="hint">Location, Transaction et Copro gardent chacune leurs réglages. Envoyez-les d'un geste vers l'autre appli installée sur ce téléphone : grille de prix, agence ou syndic, électricien, mentions, logo, prix du contrat. La clé d'activation n'est jamais transférée : collez-la à nouveau dans l'autre appli.</p>
+      <div id="st-recus"></div>
+      <div class="row2" id="st-envoi"></div>
+      <div class="row2"><button class="btn ghost" id="st-exp" type="button">Exporter un fichier</button><label class="btn ghost" for="st-imp-file">Importer un fichier</label></div>
+      <input type="file" id="st-imp-file" accept="application/json,.json" hidden>
+    </div>
+    <div class="card hide-loc" id="st-licence">
+      <h2>Licence</h2>
+      <p class="lic-etat" id="st-licence-etat"></p>
+      <label for="st-licence-code">Code de licence</label>
+      <textarea id="st-licence-code" rows="3" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="SE1.…"></textarea>
+      <button class="btn primary" id="st-licence-ok" type="button">Activer la licence</button>
+      <p class="hint">Le code vous est envoyé par l'éditeur (lien à toucher depuis ce téléphone, ou texte à coller). Il ne contient aucune donnée personnelle hors le nom du titulaire.</p>
+    </div>
+    <div class="card pro-only" id="st-moteur">
+      <h2 id="st-moteur-t">Moteur d'analyse</h2>
+      <label for="st-key">Clé d'activation (clé API)</label>
+      <input id="st-key" type="password" autocomplete="off" placeholder="sk-ant-…">
+      <p class="hint">Elle reste uniquement dans ce téléphone. Les mises à jour de l'appli la conservent.</p>
+      <label for="st-model">Précision</label>
+      <select id="st-model">
+        <option value="claude-sonnet-5-5">Standard — rapide (≈ 5 s)</option>
+        <option value="claude-opus-5-5">Maximale — plus lent (≈ 15 s)</option>
+      </select>
+      <button class="btn ghost" id="st-test">Tester la connexion</button>
+      <p class="hint" id="st-testres"></p>
+    </div>
+    <div class="card hide-loc" id="st-zone-card">
+      <h2>Zone de prix</h2>
+      <label for="st-cp">Code postal de votre secteur</label>
+      <input id="st-cp" type="text" inputmode="numeric" maxlength="5" placeholder="ex. 75011" autocomplete="off">
+      <p class="hint" id="st-zone-l">Les estimations s'ajustent au coût de la main-d'œuvre de la zone (Paris et petite couronne × 1,25, grandes métropoles × 1,10 à 1,15, reste de la France × 1). L'adresse du bien, si elle contient un code postal, passe avant ce réglage. Vos propres prix de la grille ne sont jamais corrigés.</p>
+    </div>
+    <div class="card pro-only">
+      <h2>Grille de prix JD Elec 33 <small>€ HT posé</small></h2>
+      <p class="hint">Les lignes marquées « à confirmer » ne figurent pas dans le devis de référence. Ajustez-les une fois, elles sont mémorisées.</p>
+      <div id="st-grid" class="grid"></div>
+      <label class="check"><input type="checkbox" id="st-depl"> Ajouter le forfait main d'œuvre / déplacement aux rapports</label>
+      <label class="btn ghost" for="st-grid-file">Importer ma grille validée (Excel)</label><input type="file" id="st-grid-file" accept=".xlsx,.xls,.csv" hidden>
+      <button class="btn ghost" id="st-reset">Revenir à la grille d'origine</button>
+    </div>
+    <div class="card" id="st-ag-card">
+      <h2>Agence (dépannage)</h2>
+      <p class="hint">Destinataire des demandes d'intervention, qui valide avant transmission à JD Elec 33.</p>
+      <label for="st-ag-nom">Nom de l'agence</label>
+      <input id="st-ag-nom" type="text" placeholder="ex. AJP Immobilier Soulac" autocomplete="off">
+      <label for="st-ag-gest">Gestionnaire en contact avec le propriétaire</label>
+      <input id="st-ag-gest" type="text" placeholder="ex. Mme Dupont" autocomplete="off">
+      <label for="st-ag-mail">E-mail du gestionnaire</label>
+      <input id="st-ag-mail" type="text" inputmode="email" placeholder="agence@exemple.fr" autocomplete="off">
+      <label for="st-ag-tel">Portable du gestionnaire (SMS)</label>
+      <input id="st-ag-tel" type="text" inputmode="tel" placeholder="06 00 00 00 00" autocomplete="off">
+      <label for="st-ag-ment">Mentions légales de l'agence (sur les estimations)</label>
+      <textarea id="st-ag-ment" rows="3" maxlength="600" placeholder="ex. SARL AJP Immobilier · carte professionnelle CPI 3301 XXXX XXX XXX délivrée par la CCI de Bordeaux · garantie financière …"></textarea>
+      <label>Logo de l'agence</label>
+      <div class="logo-row"><div class="logo-prev" id="st-ag-logo-prev">Aucun logo</div>
+        <label class="btn ghost" for="st-ag-logo">Choisir</label><button class="btn ghost" id="st-ag-logo-del" type="button" hidden>Retirer</button></div>
+      <input type="file" id="st-ag-logo" accept="image/*" hidden>
+      <p class="hint">Marque blanche : en profils Agence et Locataire, l'accueil, la demande d'intervention et le carnet électrique portent le nom et le logo de l'agence. Les devis restent au nom de l'électricien.</p>
+    </div>
+    <div class="card">
+      <h2>Électricien référencé</h2>
+      <p class="hint">Reçoit chaque demande en même temps que l'agence et attend le bon pour accord.</p>
+      <p class="st-contrat" id="st-el-contrat"></p>
+      <button class="btn ghost hide-loc" id="st-part" type="button">Électriciens partenaires : ajouter, contrat, tarifs</button>
+      <label for="st-el-nom">Entreprise</label>
+      <input id="st-el-nom" type="text" placeholder="JD Elec 33" autocomplete="off">
+      <label for="st-el-mail">E-mail</label>
+      <input id="st-el-mail" type="text" inputmode="email" placeholder="contact@jdelec33.fr" autocomplete="off">
+      <label for="st-el-tel">Portable</label>
+      <input id="st-el-tel" type="text" inputmode="tel" placeholder="06 95 84 17 00" autocomplete="off">
+    </div>
+    <div class="card pro-only">
+      <h2>Entreprise</h2>
+      <p>JD Elec 33 · 21 rue Georges Mandel, 33780 Soulac-sur-Mer<br>06 95 84 17 00 · contact@jdelec33.fr</p>
+    </div>
+    <div class="card">
+      <h2>Mon profil</h2>
+      <label for="st-profil">Je suis</label>
+      <select id="st-profil">
+        <option value="locataire">Locataire</option>
+        <option value="agence">Agence immobilière</option>
+        <option value="electricien">Électricien / artisan</option>
+      </select>
+      <p class="hint">Le profil locataire affiche seulement le dépannage guidé et le suivi des demandes.</p>
+      <label class="check"><input type="checkbox" id="st-voix"> Lire les questions à voix haute</label>
+      <label class="check"><input type="checkbox" id="st-ml"> Mains libres : écouter la réponse automatiquement</label>
+      <label for="st-micro">Micro (réponses à la voix)</label>
+      <select id="st-micro"><option value="fenetre">Fenêtre vocale Google : la plus fiable (recommandé)</option><option value="continu">Écoute intégrée, sans fenêtre</option></select>
+      <label class="check" id="st-interr-l"><input type="checkbox" id="st-interr"> Écoute intégrée : couper la voix de l'appli dès que je parle</label>
+      <div class="row-voix"><button class="btn ghost" id="st-mictest" type="button">Tester le micro</button></div>
+      <p class="hint" id="st-micres"></p>
+      <label class="check"><input type="checkbox" id="st-demo"> Afficher la démo agence (données fictives) en profil Agence</label>
+      <label for="st-voixsel">Voix</label>
+      <div class="row-voix"><select id="st-voixsel"><option>Voix du téléphone</option></select><button class="btn ghost" id="st-voixtest" type="button">Écouter</button></div>
+      <p class="hint">Les voix « haute qualité » sont plus naturelles et nécessitent internet. Pour en avoir davantage : Réglages Android → Synthèse vocale → Moteur Google → Installer les données vocales → Français.</p>
+    </div>
+    <div class="card loc-only" id="st-lg-card">
+      <h2>Mon logement</h2>
+      <label for="st-lg-adr">Adresse du logement</label><input id="st-lg-adr" type="text" autocomplete="off">
+      <button class="btn ghost" id="st-qr" type="button">Scanner l'autocollant</button>
+      <div class="seul-location"><label for="st-lg-usage">Ma location</label>
+      <select id="st-lg-usage"><option value="annuel">À l'année (bail d'habitation)</option><option value="saisonnier">Saisonnière (vacances)</option></select></div>
+      <label for="st-lg-nom">Mon nom</label><input id="st-lg-nom" type="text" autocomplete="off">
+      <label for="st-lg-tel">Mon téléphone</label><input id="st-lg-tel" type="text" inputmode="tel" autocomplete="off">
+    </div>
+    <div class="card" id="st-sauve">
+      <h2>Sauvegarder mes données</h2>
+      <p class="hint">Tout reste sur ce téléphone. Une fois par semaine, enregistrez une sauvegarde (Drive, e-mail, ordinateur) : logements, immeubles, demandes, visites, fiches, photos du tableau et réglages, sans la clé d'activation. Elle se restaure sur un nouveau téléphone, dans la même appli.</p>
+      <p class="hint" id="st-sauve-der"></p>
+      <div class="row2"><button class="btn ghost" id="st-sauve-exp" type="button">Sauvegarder</button><label class="btn ghost" for="st-sauve-file">Restaurer</label></div>
+      <input type="file" id="st-sauve-file" accept="application/json,.json" hidden>
+      <div id="st-sauve-conf"></div>
+    </div>
+    <div class="card">
+      <h2>Informations légales</h2>
+      <button class="btn ghost" data-legal="cgu">Conditions générales d'utilisation</button>
+      <button class="btn ghost" data-legal="conf">Politique de confidentialité</button>
+      <button class="btn ghost hide-loc" data-legal="cgv-elec">Conditions générales de vente (électriciens partenaires)</button>
+      <button class="btn ghost" id="st-tour">Revoir la présentation</button>
+    </div>
+    <button class="btn primary big" id="st-save">Enregistrer</button>
+  </div>
+</section>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="version.js"></script>
+<script src="produit-id.js"></script>
+<script src="produits.js"></script>
+<script src="licence.js"></script>
+<script src="lib/jspdf.umd.min.js"></script>
+<script src="lib/qrcode.js"></script>
+<script src="pdf.js"></script>
+<script src="legal.js"></script>
+<script src="catalogue.js"></script>
+<script src="zones.js"></script>
+<script src="depannage.js"></script>
+<script src="copro.js"></script>
+<script src="visite.js"></script>
+<script src="glob-ui.js"></script>
+<script src="app.js"></script>
+<script src="voix.js"></script>
+<script src="illus.js"></script>
+<script src="depannage-ui.js"></script>
+<script src="diagnostic-ui.js"></script>
+<script src="demo.js"></script>
+<script src="diag-local.js"></script>
+<script src="agence-ui.js"></script>
+<script src="parc-ui.js"></script>
+<script src="suivi-ui.js"></script>
+<script src="tdb-ui.js"></script>
+<script src="partenaires.js"></script>
+<script src="immeubles-ui.js"></script>
+<script src="qr.js"></script>
+<script src="age-ui.js"></script>
+<script src="demo-apres.js"></script>
+</body>
+</html>

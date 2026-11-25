@@ -5,7 +5,7 @@
 <script src="demo-avant.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<meta name="theme-color" content="#111111">
+<meta name="theme-color" content="#1D1736">
 <title>Solution Élec – Démo dépannage</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="demo.css">
@@ -17,7 +17,7 @@
   <div class="content home">
     <header class="hero">
       <div class="hero-top">
-        <div class="logo-jd"><div class="lj-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><text x="3" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#111111">J</text><text x="19" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#111111">D</text><path d="M27 6 18 26h7l-4 16 13-22h-7l4-14z" fill="#111111" stroke="#FFD100" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="lj-txt"><b>JD Elec 33</b><small>Électricité générale</small></div></div>
+        <div class="logo-jd"><div class="lj-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><text x="3" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#1D1736">J</text><text x="19" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#1D1736">D</text><path d="M27 6 18 26h7l-4 16 13-22h-7l4-14z" fill="#1D1736" stroke="#FFF200" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="lj-txt"><b>JD Elec 33</b><small>Électricité générale</small></div></div>
         <button class="icon-btn glass" data-go="s-settings" aria-label="Réglages">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
         </button>
@@ -111,7 +111,7 @@
       <input id="h-ref" type="text" placeholder="ex. 27 rue des Immortelles, Hourtin" autocomplete="off" list="h-ref-parc">
       <datalist id="h-ref-parc"></datalist>
       <label for="h-client" id="h-client-l">Client / agence (facultatif)</label>
-      <input id="h-client" type="text" placeholder="ex. AJP Immobilier Soulac" autocomplete="off">
+      <input id="h-client" type="text" placeholder="ex. Agence du Médoc, Soulac" autocomplete="off">
       <label for="h-nature">Maison ou appartement</label>
       <select id="h-nature"><option value="">Choisir</option><option value="maison">Maison</option><option value="appartement">Appartement</option><option value="maison_copro">Maison en copropriété</option></select>
       <div class="hf-row">
@@ -338,7 +338,7 @@
 <section class="screen welcome" id="s-welcome" hidden>
   <div class="wl-slides" id="wl-slides">
     <div class="wl-slide">
-      <div class="logo-jd big"><div class="lj-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><text x="3" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#111111">J</text><text x="19" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#111111">D</text><path d="M27 6 18 26h7l-4 16 13-22h-7l4-14z" fill="#111111" stroke="#FFD100" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="lj-txt"><b>JD Elec 33</b><small>Électricité générale</small></div></div>
+      <div class="logo-jd big"><div class="lj-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><text x="3" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#1D1736">J</text><text x="19" y="36" font-family="Georgia,'Times New Roman',serif" font-size="30" font-weight="700" fill="#1D1736">D</text><path d="M27 6 18 26h7l-4 16 13-22h-7l4-14z" fill="#1D1736" stroke="#FFF200" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="lj-txt"><b>JD Elec 33</b><small>Électricité générale</small></div></div>
       <h1 class="brandname app-name">Solution Élec</h1>
       <p class="tagline">Le dépannage électrique qui commence par un diagnostic, pas par un déplacement.</p>
     </div>
@@ -463,7 +463,7 @@
       <h2>Agence (dépannage)</h2>
       <p class="hint">Destinataire des demandes d'intervention, qui valide avant transmission à JD Elec 33.</p>
       <label for="st-ag-nom">Nom de l'agence</label>
-      <input id="st-ag-nom" type="text" placeholder="ex. AJP Immobilier Soulac" autocomplete="off">
+      <input id="st-ag-nom" type="text" placeholder="ex. Agence du Médoc, Soulac" autocomplete="off">
       <label for="st-ag-gest">Gestionnaire en contact avec le propriétaire</label>
       <input id="st-ag-gest" type="text" placeholder="ex. Mme Dupont" autocomplete="off">
       <label for="st-ag-mail">E-mail du gestionnaire</label>
@@ -471,7 +471,7 @@
       <label for="st-ag-tel">Portable du gestionnaire (SMS)</label>
       <input id="st-ag-tel" type="text" inputmode="tel" placeholder="06 00 00 00 00" autocomplete="off">
       <label for="st-ag-ment">Mentions légales de l'agence (sur les estimations)</label>
-      <textarea id="st-ag-ment" rows="3" maxlength="600" placeholder="ex. SARL AJP Immobilier · carte professionnelle CPI 3301 XXXX XXX XXX délivrée par la CCI de Bordeaux · garantie financière …"></textarea>
+      <textarea id="st-ag-ment" rows="3" maxlength="600" placeholder="ex. SARL Agence du Médoc · carte professionnelle CPI 3301 XXXX XXX XXX délivrée par la CCI de Bordeaux · garantie financière …"></textarea>
       <label>Logo de l'agence</label>
       <div class="logo-row"><div class="logo-prev" id="st-ag-logo-prev">Aucun logo</div>
         <label class="btn ghost" for="st-ag-logo">Choisir</label><button class="btn ghost" id="st-ag-logo-del" type="button" hidden>Retirer</button></div>
